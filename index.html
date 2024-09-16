@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório do Projeto - LED Controlado por Potenciômetro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Relatório do Projeto - LED Controlado por Potenciômetro</h1>
+    </header>
+
+    <nav>
+        <h2>SUMÁRIO</h2>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#objetivos">Objetivos</a></li>
+            <li><a href="#materiais">Materiais Utilizados</a></li>
+            <li><a href="#diagrama">Diagrama do Circuito</a></li>
+            <li><a href="#codigo">Código Fonte</a></li>
+            <li><a href="#procedimentos">Procedimentos</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#discussao">Discussão</a></li>
+            <li><a href="#conclusao">Conclusão</a></li>
+            <li><a href="#referencias">Referências</a></li>
+        </ul>
+    </nav>
+
+    <section id="introducao">
+        <h2>1. INTRODUÇÃO</h2>
+        <p>Este relatório descreve o projeto de um LED controlado por um potenciômetro utilizando Arduino, com o objetivo de demonstrar o controle de intensidade luminosa.</p>
+    </section>
+
+    <section id="objetivos">
+        <h2>2. OBJETIVOS</h2>
+        <ul>
+            <li>Controlar a intensidade luminosa de um LED usando um potenciômetro.</li>
+            <li>Compreender a leitura de valores analógicos com Arduino.</li>
+        </ul>
+    </section>
+
+    <section id="materiais">
+        <h2>3. MATERIAIS UTILIZADOS</h2>
+        <ul>
+            <li>Arduino Uno</li>
+            <li>1 LED</li>
+            <li>1 Potenciômetro (10kΩ)</li>
+            <li>1 Resistor (220Ω)</li>
+            <li>Protoboard</li>
+            <li>Fios de conexão</li>
+        </ul>
+    </section>
+
+    <section id="diagrama">
+        <h2>4. DIAGRAMA DO CIRCUITO</h2>
+        <p>Abaixo está o diagrama do circuito projetado no Tinkercad:</p>
+        <img src="img/Diagrama do Circuito.png.png" alt="Diagrama do Circuito" />
+    </section>
+
+    <section id="codigo">
+        <h2>5. CÓDIGO FONTE</h2>
+        <pre>
+int potenciometro = A0;
+int led = 3;
+int valorLido = 0;
+
+void setup() {
+    pinMode(potenciometro, INPUT);
+    pinMode(led, OUTPUT);
+    Serial.begin(9600);
+}
+
+void loop() {
+    valorLido = map(analogRead(potenciometro), 0, 1023, 0, 255);
+    analogWrite(led, valorLido);
+    Serial.println(valorLido);
+    delay(10);
+}
+        </pre>
+    </section>
+
+    <section id="procedimentos">
+        <h2>6. PROCEDIMENTOS</h2>
+        <p>O LED foi conectado ao pino digital do Arduino, e o potenciômetro ao pino analógico. O código foi carregado no Arduino e testado.</p>
+    </section>
+
+    <section id="resultados">
+        <h2>7. RESULTADOS</h2>
+        <p>O LED variou sua intensidade luminosa de acordo com a posição do potenciômetro, demonstrando o controle efetivo.</p>
+    </section>
+
+    <section id="discussao">
+        <h2>8. DISCUSSÃO</h2>
+        <p>O projeto funcionou conforme esperado, permitindo uma boa interação com o hardware e compreensão do controle analógico.</p>
+    </section>
+
+    <section id="conclusao">
+        <h2>9. CONCLUSÃO</h2>
+        <p>O projeto foi bem-sucedido, permitindo a prática de conceitos de eletrônica e programação com Arduino.</p>
+    </section>
+
+    <section id="referencias">
+        <h2>10. REFERÊNCIAS</h2>
+        <p>Documentação do Arduino e materiais utilizados no projeto.</p>
+    </section>
+
+    <h2>Perguntas</h2>
+    <ol>
+        <li>Qual o valor das resistências utilizadas? <strong>220Ω</strong></li>
+        <li>Qual o valor da corrente elétrica de cada LED? <strong>Em média, 20mA.</strong></li>
+    </ol>
+
+
+</body>
+</html>
+
+    <footer>
+        <p>Relatório elaborado por [Leonardo, Andre, Luciano].</p>
+        <p>Diciplina: Desenvolvimento de sistemas de informação</p>
+        <p>Laboratório C37. 09/09/2024 </p>
+    </footer>
+<
